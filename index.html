@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GPX Street View Flythrough</title>
+<meta name="description" content="Preview your GPX route in Google Street View before you ride it. Free for routes up to 50km." />
+<style>
+  * {
+    box-sizing: border-box;
+    border-radius: 0 !important;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #111;
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  header {
+    border-bottom: 1px solid #111;
+    padding: 20px 24px;
+  }
+
+  header .wordmark {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0 0 16px;
+  }
+
+  .tagline {
+    font-size: 17px;
+    color: #444;
+    margin: 0 0 40px;
+    max-width: 46ch;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #111;
+  }
+
+  .btn-primary {
+    background: #111;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: #333;
+  }
+
+  .btn-secondary {
+    background: #fff;
+    color: #111;
+  }
+
+  .btn-secondary:hover {
+    background: #f2f2f2;
+  }
+
+  .screenshot {
+    width: 100%;
+    display: block;
+    border: 1px solid #111;
+    margin-bottom: 56px;
+  }
+
+  section {
+    margin-bottom: 48px;
+  }
+
+  h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #666;
+    margin: 0 0 16px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: 14px 0;
+    border-top: 1px solid #ddd;
+    font-size: 15px;
+  }
+
+  li:last-child {
+    border-bottom: 1px solid #ddd;
+  }
+
+  li strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .pricing {
+    border: 1px solid #111;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .pricing div {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .pricing h3 {
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .pricing p {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+  }
+
+  footer {
+    border-top: 1px solid #111;
+    padding: 24px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+  }
+
+  footer a {
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">GPX Street View Flythrough</div>
+</header>
+
+<main>
+  <h1>See the road before you ride it.</h1>
+  <p class="tagline">
+    Upload a GPX route and play it back in Google Street View, one point at a
+    time — with a live minimap alongside it.
+  </p>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#">Get it on the Chrome Web Store</a>
+    <a class="btn btn-secondary" href="https://brunogrove7.gumroad.com/l/gpx-streetview">Buy Pro license</a>
+  </div>
+
+  <img class="screenshot" src="screenshot.jpg" alt="GPX Street View Flythrough side panel next to Google Street View, showing a loaded cycling route and satellite minimap" />
+
+  <section>
+    <h2>What it does</h2>
+    <ul>
+      <li>
+        <strong>Upload any GPX file</strong>
+        Tracks, routes, or waypoints — from Komoot, RideWithGPS, Strava, Garmin, or any GPX export.
+      </li>
+      <li>
+        <strong>Automatic Street View playback</strong>
+        The route steps through Google Street View on its own, at a pace you set.
+      </li>
+      <li>
+        <strong>Live minimap, street or satellite</strong>
+        Follows your position as you go. Click any point to jump straight there.
+      </li>
+      <li>
+        <strong>Docked side panel</strong>
+        Minimap and Street View stay visible side by side the whole time.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <div class="pricing">
+      <div>
+        <h3>Free</h3>
+        <p>Routes up to 50km. No account needed.</p>
+      </div>
+      <div>
+        <h3>Pro — one-time purchase</h3>
+        <p>Unlimited route length. Pay once, no subscription.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="https://privacy-gpx-street-viewer.codemountain.be/">Privacy Policy</a>
+</footer>
+
+</body>
+</html>

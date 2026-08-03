@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Privacy Policy — GPX Street View Flythrough</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 16px; color: #1f2430; line-height: 1.55; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 16px; margin-top: 28px; }
+  code { background: #f1f3f4; padding: 1px 5px; border-radius: 4px; }
+  .updated { color: #5f6368; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy — GPX Street View Flythrough</h1>
+<p class="updated">Last updated: 2026-07-01</p>
+
+<p>GPX Street View Flythrough is a Chrome extension that plays back a GPX
+route in Google Maps Street View. This policy explains what data the
+extension touches and where it goes.</p>
+
+<h2>Data the developer collects</h2>
+<p><strong>None.</strong> This extension has no backend server, no
+analytics, and no crash reporting. It does not transmit any data to the
+developer or any third party controlled by the developer.</p>
+
+<h2>How your data is handled</h2>
+<ul>
+  <li><strong>GPX files</strong>: processed entirely inside your browser.
+  The file you choose is read locally to draw the route and drive Street
+  View navigation; it is never uploaded anywhere.</li>
+  <li><strong>Settings</strong> (seconds between points, distance between
+  points, loop toggle): stored using Chrome's built-in
+  <code>chrome.storage.sync</code>, which syncs through your own Google
+  account the same way Chrome syncs bookmarks or other extension settings.
+  The developer has no access to this data.</li>
+  <li><strong>Google Maps / Street View</strong>: the extension opens and
+  navigates a <code>google.com/maps</code> tab on your behalf, using
+  Google's publicly documented Street View URL format. That tab's use of
+  Google Maps is governed by
+  <a href="https://policies.google.com/privacy">Google's own Privacy
+  Policy</a>, not by this extension.</li>
+  <li><strong>Minimap tiles</strong>: the in-panel minimap loads map tile
+  images from OpenStreetMap's tile servers
+  (<code>tile.openstreetmap.org</code>) to render the route. This is a
+  standard, anonymous image request (no account or API key involved); see
+  the <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap
+  Foundation Privacy Policy</a>.</li>
+</ul>
+
+<h2>Permissions</h2>
+<ul>
+  <li><code>tabs</code> — to open/find the Google Maps tab and update its
+  URL as the route advances.</li>
+  <li><code>storage</code> — to save your settings as described above.</li>
+  <li><code>sidePanel</code> — to display the control panel docked in the
+  browser window.</li>
+  <li>Host permission for <code>https://www.google.com/maps*</code> —
+  scoped narrowly so the extension can only act on Google Maps tabs.</li>
+</ul>
+<p>No other sites or data are accessed.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this extension's data practices change, this document will be updated
+and the "Last updated" date above will reflect that.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: bruno@codemountain.be</p>
+</body>
+</html>

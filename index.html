@@ -1,227 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GPX Street View Flythrough</title>
-<meta name="description" content="Preview your GPX route in Google Street View before you ride it. Free for routes up to 50km." />
-<style>
-  * {
-    box-sizing: border-box;
-    border-radius: 0 !important;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPX Street View Flythrough — Preview Your Route Before You Ride</title>
+  <meta name="description"
+    content="Preview your GPX route in Google Street View before you ride it. Works with Strava, Komoot, RideWithGPS, and Garmin. Free for routes up to 50km." />
+  <link rel="canonical" href="https://gpx-street-viewer.codemountain.be/" />
 
-  body {
-    margin: 0;
-    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    color: #111;
-    background: #fff;
-    line-height: 1.55;
-  }
+  <link rel="icon" type="image/png" sizes="16x16" href="icon16.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="icon48.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="icon128.png" />
+  <link rel="apple-touch-icon" href="icon128.png" />
 
-  header {
-    border-bottom: 1px solid #111;
-    padding: 20px 24px;
-  }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GPX Street View Flythrough" />
+  <meta property="og:description"
+    content="Preview your GPX route in Google Street View before you ride it. Works with Strava, Komoot, RideWithGPS, and Garmin." />
+  <meta property="og:url" content="https://gpx-street-viewer.codemountain.be/" />
+  <meta property="og:image" content="https://gpx-street-viewer.codemountain.be/gpx-street-view-flythrough-demo.jpg" />
 
-  header .wordmark {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GPX Street View Flythrough" />
+  <meta name="twitter:description"
+    content="Preview your GPX route in Google Street View before you ride it." />
+  <meta name="twitter:image" content="https://gpx-street-viewer.codemountain.be/gpx-street-view-flythrough-demo.jpg" />
+  <style>
+    * {
+      box-sizing: border-box;
+      border-radius: 0 !important;
+    }
 
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 64px 24px 96px;
-  }
+    body {
+      margin: 0;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.55;
+    }
 
-  h1 {
-    font-size: 34px;
-    line-height: 1.2;
-    margin: 0 0 16px;
-  }
+    header {
+      border-bottom: 1px solid #111;
+      padding: 20px 24px;
+    }
 
-  .tagline {
-    font-size: 17px;
-    color: #444;
-    margin: 0 0 40px;
-    max-width: 46ch;
-  }
+    header .wordmark {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
 
-  .cta-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 56px;
-    flex-wrap: wrap;
-  }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
 
-  .btn {
-    display: inline-block;
-    padding: 13px 22px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid #111;
-  }
+    h1 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
 
-  .btn-primary {
-    background: #111;
-    color: #fff;
-  }
+    .tagline {
+      font-size: 17px;
+      color: #444;
+      margin: 0 0 40px;
+      max-width: 46ch;
+    }
 
-  .btn-primary:hover {
-    background: #333;
-  }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
 
-  .btn-secondary {
-    background: #fff;
-    color: #111;
-  }
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #111;
+    }
 
-  .btn-secondary:hover {
-    background: #f2f2f2;
-  }
+    .btn-primary {
+      background: #111;
+      color: #fff;
+    }
 
-  .screenshot {
-    width: 100%;
-    display: block;
-    border: 1px solid #111;
-    margin-bottom: 56px;
-  }
+    .btn-primary:hover {
+      background: #333;
+    }
 
-  section {
-    margin-bottom: 48px;
-  }
+    .btn-secondary {
+      background: #fff;
+      color: #111;
+    }
 
-  h2 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #666;
-    margin: 0 0 16px;
-  }
+    .btn-secondary:hover {
+      background: #f2f2f2;
+    }
 
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+    .screenshot {
+      width: 100%;
+      display: block;
+      border: 1px solid #111;
+      margin-bottom: 56px;
+    }
 
-  li {
-    padding: 14px 0;
-    border-top: 1px solid #ddd;
-    font-size: 15px;
-  }
+    section {
+      margin-bottom: 48px;
+    }
 
-  li:last-child {
-    border-bottom: 1px solid #ddd;
-  }
+    h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin: 0 0 16px;
+    }
 
-  li strong {
-    display: block;
-    margin-bottom: 2px;
-  }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
-  .pricing {
-    border: 1px solid #111;
-    padding: 24px;
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
+    li {
+      padding: 14px 0;
+      border-top: 1px solid #ddd;
+      font-size: 15px;
+    }
 
-  .pricing div {
-    flex: 1;
-    min-width: 200px;
-  }
+    li:last-child {
+      border-bottom: 1px solid #ddd;
+    }
 
-  .pricing h3 {
-    font-size: 15px;
-    margin: 0 0 6px;
-  }
+    li strong {
+      display: block;
+      margin-bottom: 2px;
+    }
 
-  .pricing p {
-    font-size: 14px;
-    color: #444;
-    margin: 0;
-  }
+    .pricing {
+      border: 1px solid #111;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-  footer {
-    border-top: 1px solid #111;
-    padding: 24px;
-    font-size: 13px;
-    color: #666;
-    text-align: center;
-  }
+    .pricing div {
+      flex: 1;
+      min-width: 200px;
+    }
 
-  footer a {
-    color: #666;
+    .pricing h3 {
+      font-size: 15px;
+      margin: 0 0 6px;
+    }
+
+    .pricing p {
+      font-size: 14px;
+      color: #444;
+      margin: 0;
+    }
+
+    footer {
+      border-top: 1px solid #111;
+      padding: 24px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    footer a {
+      color: #666;
+    }
+
+    details {
+      border-top: 1px solid #ddd;
+      padding: 14px 0;
+    }
+
+    details:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "+ ";
+      color: #666;
+    }
+
+    details[open] summary::before {
+      content: "\2212 ";
+    }
+
+    details p,
+    details ol {
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    details ol {
+      padding-left: 20px;
+    }
+
+    details li {
+      padding: 4px 0;
+      border: none;
+      font-size: 14px;
+    }
+
+    details a {
+      color: #111;
+    }
+
+    .intro-text {
+      font-size: 14px;
+      color: #444;
+      margin: 0 0 20px;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How to export a GPX from Strava",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a route: open it at strava.com/routes and click Export GPX in the right-hand panel. For a recorded activity: open it on strava.com (not the mobile app), click the ... menu, then select Export GPX."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to export a GPX from Komoot",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open the tour on komoot.com or in the Komoot app, tap the ... menu, then tap Export as GPX. Completed tours export for free; exporting a planned route before riding it may require Komoot Premium."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to export a GPX from RideWithGPS",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open the route or trip on ridewithgps.com, click Export, choose GPX as the file type, and download it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to export a GPX from Garmin Connect",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sign in at connect.garmin.com, open the Activities or Courses section, open the specific item, click the gear/settings icon, and choose Export to GPX (or Export Original)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use a GPX file with the GPX Street View Flythrough extension?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install the extension from the Chrome Web Store, open it, upload your .gpx file, and the route plays back automatically in Google Street View with a live minimap alongside it."
+        }
+      }
+    ]
   }
-</style>
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GPX Street View Flythrough",
+    "url": "https://gpx-street-viewer.codemountain.be/",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "description": "Upload a GPX route and play it back in Google Street View, one point at a time, with a live minimap alongside it.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free for routes up to 50km. A one-time Pro purchase removes the length limit."
+    },
+    "downloadUrl": "https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn",
+    "screenshot": "https://gpx-street-viewer.codemountain.be/gpx-street-view-flythrough-demo.jpg"
+  }
+  </script>
 </head>
+
 <body>
 
-<header>
-  <div class="wordmark">GPX Street View Flythrough</div>
-</header>
+  <header>
+    <div class="wordmark">GPX Street View Flythrough</div>
+  </header>
 
-<main>
-  <h1>See the road before you ride it.</h1>
-  <p class="tagline">
-    Upload a GPX route and play it back in Google Street View, one point at a
-    time — with a live minimap alongside it.
-  </p>
+  <main>
+    <h1>See the road before you ride it.</h1>
+    <p class="tagline">
+      Upload a GPX route and play it back in Google Street View, one point at a
+      time — with a live minimap alongside it.
+    </p>
 
-  <div class="cta-row">
-    <a class="btn btn-primary" href="#">Get it on the Chrome Web Store</a>
-    <a class="btn btn-secondary" href="https://brunogrove7.gumroad.com/l/gpx-streetview">Buy Pro license</a>
-  </div>
-
-  <img class="screenshot" src="screenshot.jpg" alt="GPX Street View Flythrough side panel next to Google Street View, showing a loaded cycling route and satellite minimap" />
-
-  <section>
-    <h2>What it does</h2>
-    <ul>
-      <li>
-        <strong>Upload any GPX file</strong>
-        Tracks, routes, or waypoints — from Komoot, RideWithGPS, Strava, Garmin, or any GPX export.
-      </li>
-      <li>
-        <strong>Automatic Street View playback</strong>
-        The route steps through Google Street View on its own, at a pace you set.
-      </li>
-      <li>
-        <strong>Live minimap, street or satellite</strong>
-        Follows your position as you go. Click any point to jump straight there.
-      </li>
-      <li>
-        <strong>Docked side panel</strong>
-        Minimap and Street View stay visible side by side the whole time.
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Pricing</h2>
-    <div class="pricing">
-      <div>
-        <h3>Free</h3>
-        <p>Routes up to 50km. No account needed.</p>
-      </div>
-      <div>
-        <h3>Pro — one-time purchase</h3>
-        <p>Unlimited route length. Pay once, no subscription.</p>
-      </div>
+    <div class="cta-row">
+      <a class="btn btn-primary"
+        href="https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn">Get
+        Chrome extension</a>
     </div>
-  </section>
-</main>
 
-<footer>
-  <a href="https://privacy-gpx-street-viewer.codemountain.be/">Privacy Policy</a>
-</footer>
+    <img class="screenshot" src="gpx-street-view-flythrough-demo.jpg"
+      alt="GPX Street View Flythrough side panel next to Google Street View, showing a loaded cycling route and satellite minimap" />
+
+    <section>
+      <h2>What it does</h2>
+      <ul>
+        <li>
+          <strong>Upload any GPX file</strong>
+          Tracks, routes, or waypoints — from Komoot, RideWithGPS, Strava, Garmin, or any GPX export.
+        </li>
+        <li>
+          <strong>Automatic Street View playback</strong>
+          The route steps through Google Street View on its own, at a pace you set.
+        </li>
+        <li>
+          <strong>Live minimap, street or satellite</strong>
+          Follows your position as you go. Click any point to jump straight there.
+        </li>
+        <li>
+          <strong>Docked side panel</strong>
+          Minimap and Street View stay visible side by side the whole time.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How to download a GPX file</h2>
+      <p class="intro-text">
+        A GPX file is just a small text file with your route's coordinates — every major cycling,
+        running, and hiking app can export one. Here's how to get a GPX file from the most popular
+        routing apps so you can preview it in Google Street View with this extension.
+      </p>
+
+      <details>
+        <summary>How to export a GPX from Strava</summary>
+        <p>For a route you built in Strava's Route Builder:</p>
+        <ol>
+          <li>Open the route at strava.com/routes.</li>
+          <li>Click the route to open it, then click <strong>Export GPX</strong> in the right-hand
+            panel.</li>
+          <li>The .gpx file downloads straight to your computer.</li>
+        </ol>
+        <p>For an activity you already recorded:</p>
+        <ol>
+          <li>Open the activity on strava.com (GPX export isn't available from the mobile app).</li>
+          <li>Click the <strong>&hellip;</strong> (more options) menu in the top right of the
+            activity page.</li>
+          <li>Select <strong>Export GPX</strong>.</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>How to export a GPX from Komoot</summary>
+        <ol>
+          <li>Open the tour on komoot.com or in the Komoot app.</li>
+          <li>Tap the <strong>&hellip;</strong> (more) menu on the tour page.</li>
+          <li>Tap <strong>Export as GPX</strong>.</li>
+        </ol>
+        <p>Completed tours can be exported by anyone; exporting a planned route before you've
+          ridden it may require a Komoot Premium plan.</p>
+      </details>
+
+      <details>
+        <summary>How to export a GPX from RideWithGPS</summary>
+        <ol>
+          <li>Open the route or trip on ridewithgps.com.</li>
+          <li>Click the <strong>Export</strong> button on the route page.</li>
+          <li>Choose <strong>GPX</strong> as the file type and download it.</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>How to export a GPX from Garmin Connect</summary>
+        <ol>
+          <li>Sign in at connect.garmin.com and open <strong>Activities</strong> or
+            <strong>Courses</strong>.</li>
+          <li>Open the specific activity or course you want to export.</li>
+          <li>Click the gear/settings icon and choose <strong>Export to GPX</strong> (or
+            <strong>Export Original</strong>).</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>How do I use a GPX file with this extension?</summary>
+        <ol>
+          <li>Install the GPX Street View Flythrough extension from the Chrome Web Store.</li>
+          <li>Open the extension and upload the .gpx file you downloaded.</li>
+          <li>Watch your route play back automatically in Google Street View, with a live minimap
+            alongside it.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section>
+      <h2>Pricing</h2>
+      <div class="pricing">
+        <div>
+          <h3>Free</h3>
+          <p>Routes up to 50km. No account needed.</p>
+        </div>
+        <div>
+          <h3>Pro — one-time purchase</h3>
+          <p>Unlimited route length. Pay once, no subscription.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://gpx-street-viewer.codemountain.be/privacy.html">Privacy Policy</a>
+  </footer>
 
 </body>
+
 </html>

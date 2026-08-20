@@ -23,8 +23,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="GPX Street View Flythrough" />
-  <meta name="twitter:description"
-    content="Preview your GPX route in Google Street View before you ride it." />
+  <meta name="twitter:description" content="Preview your GPX route in Google Street View before you ride it." />
   <meta name="twitter:image" content="https://gpx-street-viewer.codemountain.be/gpx-street-view-flythrough-demo.jpg" />
   <style>
     * {
@@ -305,6 +304,23 @@
     "screenshot": "https://gpx-street-viewer.codemountain.be/gpx-street-view-flythrough-demo.jpg"
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1010761588"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-1010761588');
+  </script>
+  <!-- Event snippet for Paginaweergave conversion page -->
+  <script>
+    gtag('event', 'conversion', {
+      'send_to': 'AW-1010761588/uFnrCKiGtuQcEPT---ED',
+      'value': 1.0,
+      'currency': 'EUR'
+    });
+  </script>
 </head>
 
 <body>
@@ -401,10 +417,12 @@
         <summary>How to export a GPX from Garmin Connect</summary>
         <ol>
           <li>Sign in at connect.garmin.com and open <strong>Activities</strong> or
-            <strong>Courses</strong>.</li>
+            <strong>Courses</strong>.
+          </li>
           <li>Open the specific activity or course you want to export.</li>
           <li>Click the gear/settings icon and choose <strong>Export to GPX</strong> (or
-            <strong>Export Original</strong>).</li>
+            <strong>Export Original</strong>).
+          </li>
         </ol>
       </details>
 

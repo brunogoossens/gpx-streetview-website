@@ -14,7 +14,7 @@
 </head>
 <body>
 <h1>Privacy Policy — GPX Street View Flythrough</h1>
-<p class="updated">Last updated: 2026-07-01</p>
+<p class="updated">Last updated: 2026-10-25</p>
 
 <p>GPX Street View Flythrough is a Chrome extension that plays back a GPX
 route in Google Maps Street View. This policy explains what data the
@@ -41,12 +41,26 @@ developer or any third party controlled by the developer.</p>
   Google Maps is governed by
   <a href="https://policies.google.com/privacy">Google's own Privacy
   Policy</a>, not by this extension.</li>
+  <li><strong>Smooth play</strong>: when you choose Smooth play, the
+  extension runs a small script inside that Google Maps tab. It reads the
+  current Street View position and direction from the tab's address and
+  simulates clicks and drags on the Street View image to move along your
+  route. It does not read or collect anything else from the page, and
+  nothing it sees leaves your browser.</li>
   <li><strong>Minimap tiles</strong>: the in-panel minimap loads map tile
   images from OpenStreetMap's tile servers
-  (<code>tile.openstreetmap.org</code>) to render the route. This is a
-  standard, anonymous image request (no account or API key involved); see
+  (<code>tile.openstreetmap.org</code>) and, for the satellite view, from
+  Esri (<code>server.arcgisonline.com</code>). These are standard,
+  anonymous image requests (no account or API key involved); see
   the <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap
-  Foundation Privacy Policy</a>.</li>
+  Foundation Privacy Policy</a> and
+  <a href="https://www.esri.com/en-us/privacy/overview">Esri's Privacy
+  Policy</a>.</li>
+  <li><strong>License key</strong> (Pro only): when you activate a license,
+  the key you enter is sent to Gumroad (<code>api.gumroad.com</code>),
+  where the license was bought, to check that it's valid. Once verified,
+  the key is stored with your settings in <code>chrome.storage.sync</code>.
+  See <a href="https://gumroad.com/privacy">Gumroad's Privacy Policy</a>.</li>
 </ul>
 
 <h2>Permissions</h2>
@@ -56,8 +70,12 @@ developer or any third party controlled by the developer.</p>
   <li><code>storage</code> — to save your settings as described above.</li>
   <li><code>sidePanel</code> — to display the control panel docked in the
   browser window.</li>
+  <li><code>scripting</code> — to run the Smooth play script described
+  above in the Google Maps tab.</li>
   <li>Host permission for <code>https://www.google.com/maps*</code> —
   scoped narrowly so the extension can only act on Google Maps tabs.</li>
+  <li>Host permission for <code>https://api.gumroad.com/*</code> — to
+  verify a license key, as described above.</li>
 </ul>
 <p>No other sites or data are accessed.</p>
 

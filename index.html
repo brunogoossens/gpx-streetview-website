@@ -236,6 +236,201 @@
       color: #444;
       margin: 0 0 20px;
     }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+      padding: 14px 24px;
+    }
+
+    header .btn {
+      white-space: nowrap;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 960px;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero .tagline {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .cta-row {
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: #666;
+      margin: 0 0 48px;
+    }
+
+    section {
+      margin-bottom: 72px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #666;
+      margin: 0 0 6px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      line-height: 1.25;
+      color: #111;
+      text-transform: none;
+      letter-spacing: 0;
+      margin: 0 0 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      border-top: 1px solid #111;
+      border-left: 1px solid #111;
+    }
+
+    .card {
+      padding: 22px;
+      border-right: 1px solid #111;
+      border-bottom: 1px solid #111;
+    }
+
+    .card .icon {
+      font-size: 22px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #444;
+      margin: 0;
+    }
+
+    .card p.vs {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #ccc;
+      font-size: 12px;
+      color: #777;
+    }
+
+    .steps {
+      counter-reset: step;
+    }
+
+    .steps .card h3::before {
+      counter-increment: step;
+      content: counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .faq {
+      max-width: 720px;
+    }
+
+    .pricing {
+      padding: 0;
+      gap: 0;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing .card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pricing .card.featured {
+      background: #111;
+      color: #fff;
+    }
+
+    .pricing .card.featured p,
+    .pricing .card.featured li {
+      color: #ddd;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .pricing ul li {
+      border: none;
+      padding: 3px 0;
+      font-size: 14px;
+    }
+
+    .pricing ul li::before {
+      content: "✓ ";
+    }
+
+    .pricing .btn {
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .pricing .card.featured .btn {
+      background: #fff;
+      color: #111;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 40px 16px 72px;
+      }
+
+      header {
+        padding: 12px 16px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -327,52 +522,131 @@
 
   <header>
     <div class="wordmark">GPX Street View Flythrough</div>
+    <a class="btn btn-primary"
+      href="https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn">Add
+      to Chrome</a>
   </header>
 
   <main>
-    <h1>See the road before you ride it.</h1>
-    <p class="tagline">
-      Upload a GPX route and play it back in Google Street View, one point at a
-      time — with a live minimap alongside it.
-    </p>
+    <div class="hero">
+      <h1>See the road before you ride it.</h1>
+      <p class="tagline">
+        Upload a GPX route and watch it play back in Google Street View, with a live minimap
+        alongside.
+      </p>
 
-    <div class="cta-row">
-      <a class="btn btn-primary"
-        href="https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn">Get
-        Chrome extension</a>
+      <div class="cta-row">
+        <a class="btn btn-primary"
+          href="https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn">Get
+          Chrome extension — free</a>
+        <a class="btn btn-secondary" href="#how-it-works">How it works</a>
+      </div>
+      <p class="hero-note">Free up to 50km · No account · No API key</p>
     </div>
 
     <img class="screenshot" src="gpx-street-view-flythrough-demo.jpg"
       alt="GPX Street View Flythrough side panel next to Google Street View, showing a loaded cycling route and satellite minimap" />
 
-    <section>
-      <h2>What it does</h2>
-      <ul>
-        <li>
-          <strong>Upload any GPX file</strong>
-          Tracks, routes, or waypoints — from Komoot, RideWithGPS, Strava, Garmin, or any GPX export.
-        </li>
-        <li>
-          <strong>Automatic Street View playback</strong>
-          The route steps through Google Street View on its own, at a pace you set.
-        </li>
-        <li>
-          <strong>Live minimap, street or satellite</strong>
-          Follows your position as you go. Click any point to jump straight there.
-        </li>
-        <li>
-          <strong>Docked side panel</strong>
-          Minimap and Street View stay visible side by side the whole time.
-        </li>
-      </ul>
+    <section id="how-it-works">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Three steps to preview your route</h2>
+      <div class="grid steps">
+        <div class="card">
+          <h3>Export a GPX</h3>
+          <p>From Strava, Komoot, RideWithGPS, Garmin, or any other app.</p>
+        </div>
+        <div class="card">
+          <h3>Upload it</h3>
+          <p>Open the extension's side panel and choose your .gpx file.</p>
+        </div>
+        <div class="card">
+          <h3>Press play</h3>
+          <p>Your route plays back in Street View while the minimap follows along.</p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>How to download a GPX file</h2>
+      <p class="eyebrow">Features</p>
+      <h2 class="section-title">What it does</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="icon">📂</div>
+          <h3>Any GPX file</h3>
+          <p>Tracks, routes, or waypoints from any app.</p>
+        </div>
+        <div class="card">
+          <div class="icon">▶️</div>
+          <h3>Automatic playback</h3>
+          <p>Steps through Street View on its own, at your pace.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🗺️</div>
+          <h3>Live minimap</h3>
+          <p>Street or satellite view. Click any point to jump there.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧭</div>
+          <h3>Docked side panel</h3>
+          <p>Minimap and Street View side by side, always visible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Why this one</p>
+      <h2 class="section-title">Better than other route previewers</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">👀</div>
+          <h3>See what satellites can't</h3>
+          <p>Bike lanes, shoulders, road surface, traffic, and that "quiet road" that's actually a
+            highway — all at eye level.</p>
+          <p class="vs">Instead of: a 3D satellite flyover</p>
+        </div>
+        <div class="card">
+          <div class="icon">🗓️</div>
+          <h3>Before you ride, not after</h3>
+          <p>Preview a route you've only planned, so you can fix it before the start, not
+            discover problems halfway through.</p>
+          <p class="vs">Instead of: replay videos of rides you've already done</p>
+        </div>
+        <div class="card">
+          <div class="icon">🙌</div>
+          <h3>Hands-free, facing the road</h3>
+          <p>Playback moves along on its own, with the camera always pointing where you'll be
+            heading, even through switchbacks.</p>
+          <p class="vs">Instead of: dragging the Street View figure along the route by hand</p>
+        </div>
+        <div class="card">
+          <div class="icon">⏸️</div>
+          <h3>Live, not a video</h3>
+          <p>Pause at any point and look around, or click the minimap to jump to that tricky
+            junction. Starts the moment you load your file.</p>
+          <p class="vs">Instead of: waiting for a pre-rendered video you can't explore</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔀</div>
+          <h3>Works with every app</h3>
+          <p>Strava, Komoot, RideWithGPS, Garmin, or any other GPX file. Plan wherever you like.
+          </p>
+          <p class="vs">Instead of: a preview locked to one platform</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔒</div>
+          <h3>No account, no API key, no subscription</h3>
+          <p>Install and go. Your GPX file stays in your browser. Free up to 50km, and Pro is a
+            one-time purchase.</p>
+          <p class="vs">Instead of: sign-ups, API keys, and monthly plans</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <p class="eyebrow">Help</p>
+      <h2 class="section-title">How to download a GPX file</h2>
       <p class="intro-text">
-        A GPX file is just a small text file with your route's coordinates — every major cycling,
-        running, and hiking app can export one. Here's how to get a GPX file from the most popular
-        routing apps so you can preview it in Google Street View with this extension.
+        Every major cycling, running, and hiking app can export a GPX file. Pick your app:
       </p>
 
       <details>
@@ -436,17 +710,33 @@
         </ol>
       </details>
     </section>
-
     <section>
-      <h2>Pricing</h2>
-      <div class="pricing">
-        <div>
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Simple, one-time pricing</h2>
+      <div class="grid grid-2 pricing">
+        <div class="card">
           <h3>Free</h3>
-          <p>Routes up to 50km. No account needed.</p>
+          <div class="price">€0</div>
+          <ul>
+            <li>Routes up to 50km</li>
+            <li>All playback features</li>
+            <li>No account needed</li>
+          </ul>
+          <a class="btn btn-secondary"
+            href="https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn">Get
+            started</a>
         </div>
-        <div>
-          <h3>Pro — one-time purchase</h3>
-          <p>Unlimited route length. Pay once, no subscription.</p>
+        <div class="card featured">
+          <h3>Pro</h3>
+          <div class="price">One-time</div>
+          <ul>
+            <li>Unlimited route length</li>
+            <li>Pay once, keep it forever</li>
+            <li>No subscription</li>
+          </ul>
+          <a class="btn btn-secondary"
+            href="https://chromewebstore.google.com/detail/gpx-street-view-flythroug/ebpfgdmdcfeahplgplkachgaihacdikn">Upgrade
+            in the extension</a>
         </div>
       </div>
     </section>
